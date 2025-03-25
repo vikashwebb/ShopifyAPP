@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "cf28b547c86e055ee69d767d862947ce"
+application_url = "https://enabled-cached-incidence-architect.trycloudflare.com"
+embedded = true
+name = "gaint-logistics"
+handle = "gaint-logistics"
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-01"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,read_orders,customer_read_orders,customer_write_orders,customer_read_customers,customer_write_customers,read_customers"
+
+[auth]
+redirect_urls = [
+  "https://enabled-cached-incidence-architect.trycloudflare.com/auth/callback",
+  "https://enabled-cached-incidence-architect.trycloudflare.com/auth/shopify/callback",
+  "https://enabled-cached-incidence-architect.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
